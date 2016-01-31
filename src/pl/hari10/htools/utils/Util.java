@@ -5,7 +5,7 @@ import org.bukkit.command.CommandSender;
 
 public class Util {
 
-	private static String tag = "&8[&4>>&8]&7 ";
+	private static String tag = "§8[§4>>§8]§7 ";
 	
 	public static String setColor(String text) {
 		return ChatColor.translateAlternateColorCodes('&', text);
