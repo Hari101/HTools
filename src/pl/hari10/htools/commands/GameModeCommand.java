@@ -41,20 +41,26 @@ public class GameModeCommand implements CommandExecutor {
 			Util.sendMessage(other, "Twoj tryb zostal zmieniony na &6" + other.getGameMode().toString() + "&7.");
 			Util.sendMessage(sender, "Zmieniles tryb gracza §6" + other.getName() + "§7 na §6" + other.getGameMode().toString() + "§7.");
 			return true;
+		} else {
+			Util.sendMessage(sender, "Poprawne uzycie: &6/gamemode <survival/creative> <gracz>&7.");
 		}
 		return true;
 	}
 	
 	@SuppressWarnings("deprecation")
 	void setGm(Player p, String[] args) {
-		GameMode gm;
+		GameMode gm = null;
 		if(Character.isDigit(args[0].charAt(0))) {
 			gm = GameMode.getByValue(Character.getNumericValue(args[0].charAt(0)));
 		} else {
-			gm = GameMode.valueOf(args[0].toUpperCase());
+			if(args[0].equals("survival")) {
+				gm = GameMode.valueOf(args[0].toUpperCase());
+			}
+			else if(args[0].equals("creative")) {
+				gm = GameMode.valueOf(args[0].toUpperCase());
+			}
 		}
 		if(gm == null) {
-			Util.sendMessage(p, "Poprawne uzycie: &6/gamemode <survival/creative> <gracz>&7.");
 			return;
 		}
 		p.setGameMode(gm);
