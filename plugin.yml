@@ -8,3 +8,4 @@ commands:
   gamemode:
     aliases: [gm]
   clear:
+  fly:
