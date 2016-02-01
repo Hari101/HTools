@@ -2,6 +2,7 @@ package pl.hari10.htools;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import pl.hari10.htools.commands.ClearCommand;
 import pl.hari10.htools.commands.FeedCommand;
 import pl.hari10.htools.commands.GameModeCommand;
 import pl.hari10.htools.commands.HealCommand;
@@ -18,5 +19,6 @@ public class HTools extends JavaPlugin {
 		getCommand("heal").setExecutor(new HealCommand(this));
 		getCommand("feed").setExecutor(new FeedCommand(this));
 		getCommand("gamemode").setExecutor(new GameModeCommand(this));
+		getCommand("clear").setExecutor(new ClearCommand(this));
 	}
 }

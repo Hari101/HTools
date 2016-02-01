@@ -1,0 +1,10 @@
+name: HTools
+main: pl.hari10.htools.HTools
+version: 0.1
+
+commands:
+  heal:
+  feed:
+  gamemode:
+    aliases: [gm]
+  clear:
