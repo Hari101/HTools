@@ -9,3 +9,5 @@ commands:
     aliases: [gm]
   clear:
   fly:
+  tppos:
+    aliases: [tpp]

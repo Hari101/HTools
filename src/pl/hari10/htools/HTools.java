@@ -7,6 +7,7 @@ import pl.hari10.htools.commands.FeedCommand;
 import pl.hari10.htools.commands.FlyCommand;
 import pl.hari10.htools.commands.GameModeCommand;
 import pl.hari10.htools.commands.HealCommand;
+import pl.hari10.htools.commands.TpposCommand;
 
 public class HTools extends JavaPlugin {
 	
@@ -22,5 +23,6 @@ public class HTools extends JavaPlugin {
 		getCommand("gamemode").setExecutor(new GameModeCommand(this));
 		getCommand("clear").setExecutor(new ClearCommand(this));
 		getCommand("fly").setExecutor(new FlyCommand(this));
+		getCommand("tppos").setExecutor(new TpposCommand(this));
 	}
 }
