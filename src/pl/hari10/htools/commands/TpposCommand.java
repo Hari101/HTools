@@ -30,12 +30,7 @@ public class TpposCommand implements CommandExecutor {
 		
 		if(args.length == 3) {
 			if(sender instanceof Player) {
-				try {
-					teleport(p, args);
-				} catch(NumberFormatException e) {
-					Util.sendMessage(sender, "Nie mozesz uzywac liczb po przecinku!");
-					return true;
-				}
+				teleport(p, args);
 				Util.sendMessage(p, "Przeteleportowano na koordynaty x: &6" + l.getBlockX() + " &7y: &6" + l.getBlockY() + " &7z: &6" + l.getBlockZ() + "&7.");
 				return true;
 			} else {
@@ -49,12 +44,7 @@ public class TpposCommand implements CommandExecutor {
 				Util.sendMessage(sender, "Nie ma takiego gracza na serwerze!");
 				return true;
 			} else {
-				try {
-					teleport(other, args);
-				} catch(NumberFormatException e) {
-					Util.sendMessage(sender, "Nie mozesz uzywac liczb po przecinku!");
-					return true;
-				}
+				teleport(other, args);
 				Util.sendMessage(other, "Przeteleportowano na koordynaty x: &6" + other.getLocation().getBlockX() + " &7y: &6" + other.getLocation().getBlockY() + " &7z: &6" + other.getLocation().getBlockZ() + "&7.");
 				Util.sendMessage(sender, "Przeteleportowales gracza &6" + other.getName() + " &7na koordynaty x: &6" + other.getLocation().getBlockX() + " &7y: &6" + other.getLocation().getBlockY() + " &7z: &6" + other.getLocation().getBlockZ() + "&7.");
 			}
@@ -68,7 +58,12 @@ public class TpposCommand implements CommandExecutor {
 		int x = Integer.parseInt(args[0]);
 		int y = Integer.parseInt(args[1]);
 		int z = Integer.parseInt(args[2]);
-		Location loc = new Location(p.getWorld(), x, y, z);
-		p.teleport(loc);
+		Location loc = new Location(p.getWorld(), x, y, z);	
+		try {
+			p.teleport(loc);
+		} catch(NumberFormatException e) {
+			Util.sendMessage(p, "Nie mozesz uzywac liczb po przecinku!");
+			return;
+		}
 	}
 }
